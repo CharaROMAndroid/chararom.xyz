@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CharaROM</title>
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* Prevents scrollbars during animation */
+    }
+
+    body {
+        /* We use a 400% width gradient so there is "room" to slide the colors.
+           Colors: Blue, Purple, Pink, Orange, Yellow, Green, Blue 
+        */
+        background: linear-gradient(
+            45deg, 
+            #0078D7, #8C49F0, #F7A3C5, #FFD966, #66FFB3, #0078D7
+        );
+        background-size: 400% 400%;
+        animation: moving-rainbow 12s ease infinite;
+        
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+    }
+
+    .message {
+        /* Frosted glass effect */
+        background-color: rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(10px); 
+        padding: 40px 60px;
+        border-radius: 15px;
+        box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+        animation: fadeIn 1.2s ease-in-out;
+        max-width: 800px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Keyframes for the rainbow slide */
+    @keyframes moving-rainbow {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+        font-size: 1.8em;
+        margin: 0 0 10px;
+        font-weight: 600;
+        text-align: center;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    p {
+        font-size: 1.1em;
+        margin: 0 0 20px;
+        opacity: 0.9;
+        text-align: center;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        margin: 8px 0;
+    }
+
+    strong {
+        color: #ffecb3;
+    }
+
+    .device {
+        margin-top: 15px;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 15px 20px;
+        border-radius: 10px;
+    }
+
+    .device strong {
+        color: #ffd966;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+<body>
+    <div class="message">
+        <h1>Hi there!</h1>
+        <p>This website is currently in progress, so please excuse the lack of information. While you wait, please join our <a href="https://t.me/bunnypaddev">Telegram</a></p>
+    </div>
+</body>
+</html>
