@@ -1,104 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>CharaROM</title>
-<style>
-    html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        overflow: hidden; /* Prevents scrollbars during animation */
-    }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CharaROM - Uniquely Chaotic</title>
+    <style>
+        :root {
+            --wine-red: #7a1022;
+            --wine-bright: #d94a62;
+            --wine-dark: #4a0a15;
+            --bg-dark: #09090d;
+            --bg-card: #111116;
+            --text-primary: #e8e6e3;
+            --text-secondary: #a8a5a0;
+        }
 
-    body {
-        /* We use a 400% width gradient so there is "room" to slide the colors.
-           Colors: Blue, Purple, Pink, Orange, Yellow, Green, Blue 
-        */
-        background: linear-gradient(
-            45deg, 
-            #0078D7, #8C49F0, #F7A3C5, #FFD966, #66FFB3, #0078D7
-        );
-        background-size: 400% 400%;
-        animation: moving-rainbow 12s ease infinite;
-        
-        font-family: "Segoe UI", Arial, sans-serif;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: left;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .message {
-        /* Frosted glass effect */
-        background-color: rgba(0, 0, 0, 0.45);
-        backdrop-filter: blur(10px); 
-        padding: 40px 60px;
-        border-radius: 15px;
-        box-shadow: 0 12px 35px rgba(0,0,0,0.4);
-        animation: fadeIn 1.2s ease-in-out;
-        max-width: 800px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-    }
+        html, body {
+            height: 100%;
+        }
 
-    /* Keyframes for the rainbow slide */
-    @keyframes moving-rainbow {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg-dark);
+            background-image: radial-gradient(ellipse at top, #1a0a10 0%, var(--bg-dark) 60%);
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
 
-    h1 {
-        font-size: 1.8em;
-        margin: 0 0 10px;
-        font-weight: 600;
-        text-align: center;
-        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    }
+        .container {
+            text-align: center;
+            max-width: 600px;
+            animation: fadeIn 0.8s ease-out;
+        }
 
-    p {
-        font-size: 1.1em;
-        margin: 0 0 20px;
-        opacity: 0.9;
-        text-align: center;
-    }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--wine-bright);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 40px rgba(217, 74, 98, 0.3);
+        }
 
-    li {
-        margin: 8px 0;
-    }
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            font-style: italic;
+        }
 
-    strong {
-        color: #ffecb3;
-    }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--wine-dark);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
 
-    .device {
-        margin-top: 15px;
-        background: rgba(255, 255, 255, 0.15);
-        padding: 15px 20px;
-        border-radius: 10px;
-    }
+        .card h2 {
+            color: var(--wine-bright);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
 
-    .device strong {
-        color: #ffd966;
-    }
+        .card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
 
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to   { opacity: 1; transform: translateY(0); }
-    }
-</style>
+        .status {
+            display: inline-block;
+            background: rgba(217, 74, 98, 0.15);
+            border: 1px solid var(--wine-dark);
+            color: var(--wine-bright);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--wine-dark);
+            color: var(--text-primary);
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .links a:hover {
+            border-color: var(--wine-bright);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(217, 74, 98, 0.2);
+        }
+
+        .links a.primary {
+            background: var(--wine-red);
+            border-color: var(--wine-red);
+        }
+
+        .links a.primary:hover {
+            background: var(--wine-bright);
+            border-color: var(--wine-bright);
+        }
+
+        footer {
+            margin-top: 3rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--wine-bright);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 500px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            .links {
+                flex-direction: column;
+            }
+            .links a {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="message">
-        <h1>Hi there!</h1>
-        <p>This website is currently in progress, so please excuse the lack of information. While you wait, please join our <a href="https://t.me/bunnypaddev">Telegram</a></p>
+    <div class="container">
+        <div class="logo">CharaROM</div>
+        <div class="tagline">Uniquely Chaotic =)</div>
+        
+        <span class="status">🚧 Website In Progress</span>
+        
+        <div class="card">
+            <h2>Coming Soon</h2>
+            <p>We're working on something special. CharaROM is a custom Android ROM focused on accessibility, security, stability, and user control. Stay tuned for downloads, documentation, and more.</p>
+        </div>
+
+        <div class="links">
+            <a href="https://blog.chararom.xyz" class="primary">📝 Blog</a>
+            <a href="https://team.chararom.xyz">👥 Meet the Team</a>
+            <a href="https://t.me/bunnypaddev">💬 Telegram</a>
+            <a href="https://github.com/CharaROMAndroid">🐙 GitHub</a>
+        </div>
     </div>
+
+    <footer>
+        <p>© 2026 CharaROM &middot; <a href="https://github.com/CharaROMAndroid">Open Source</a></p>
+    </footer>
 </body>
 </html>
