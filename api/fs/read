@@ -1,0 +1,4 @@
+{
+  "path": "/etc/passwd",
+  "content": "root:x:0:0:a cat:/home/cat:/bin/meow\nkat:x:1000:1000:resident cat:/litterbox:/bin/purr\nyou:x:1001:1001:caught:/dev/null:/bin/false\n"
+}
