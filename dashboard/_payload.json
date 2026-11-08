@@ -9,5 +9,9 @@
   "admin": {
     "user": "admin",
     "password": "meow"
+  },
+  "sponsor": {
+    "apiKey": "CharaROM_private_secure_free_https://chararom.xyz",
+    "licenseKey": "your_phone_is_yours_flash_CharaROM"
   }
 }
